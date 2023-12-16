@@ -7,12 +7,11 @@ candidates_dao = CandidateDAO('./data/candidates.json')
 candidates_blueprint: Blueprint = Blueprint(
     'candidates_blueprint',
     __name__,
-    url_prefix='/candidates',
     template_folder='templates'
 )
 
 
-@candidates_blueprint.route('/')
+@candidates_blueprint.route('/candidates/')
 def page_candidates_all() -> str:
     """
     Возвращает страницу со всеми кандидатами.
@@ -24,8 +23,8 @@ def page_candidates_all() -> str:
     return render_template('candidates_index.html', candidates=candidates)
 
 
-@candidates_blueprint.route('/<int: pk>')
-def page_candidate(pk) -> str:
+@candidates_blueprint.route('/candidates/<int:pk>')
+def page_candidates_single(pk) -> str:
     """
     Возвращает страницу с однимкандидатом.
 
