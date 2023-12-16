@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang='ru'>
+    <head>
+        <meta charset='utf-8'>
+        <title>Вакансии</title>
+    </head>
+    <body>
+        <h1>Список вакансий</h1>
+        <hr>
+        <br/>
+        <p>
+            {% for vacancy in vacancies %} 
+            <p><a href='/vacancies/{{vacancy.pk}}'> {{vacancy.company}} </a> {{vacancy.position}}</p>
+            {% endfor %}
+        </p>
+        
+    </body>
+</html>
