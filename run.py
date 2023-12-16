@@ -14,4 +14,4 @@ app.register_blueprint(vacancies_blueprint)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
