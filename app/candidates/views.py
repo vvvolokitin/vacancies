@@ -22,3 +22,15 @@ def page_candidates_all() -> str:
     """
     candidates = candidates_dao.get_all()
     return render_template('candidates_index.html', candidates=candidates)
+
+
+@candidates_blueprint.route('/<int: pk>')
+def page_candidate(pk) -> str:
+    """
+    Возвращает страницу с однимкандидатом.
+
+    Возвращаемое значение:
+        str: Информация о кандидате.
+    """
+    candidate = candidates_dao.get_by_pk(pk)
+    return render_template('candidates_single.html', candidate=candidate)
